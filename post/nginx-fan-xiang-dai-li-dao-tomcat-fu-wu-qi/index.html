@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Hello Gridea | 从未到过的地方</title>
+<title>Nginx反向代理到Tomcat服务器 | 从未到过的地方</title>
 <meta name="description" content="做到了，就快乐。做不到，就沮丧。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,40 +87,41 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>Hello Gridea</h1>
+            <h1>Nginx反向代理到Tomcat服务器</h1>
             <p class="article-meta">
-              2018-12-12
+              2018-07-05
               
-                <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge warning">
-                  Gridea
+                <a href="https://youaremywind.github.io/tag/sbI0ZiRsm" class="badge warning">
+                  Nginx
+                </a>
+              
+                <a href="https://youaremywind.github.io/tag/VM-rIjpz-E" class="badge ">
+                  Tomcat
                 </a>
               
             </p>
             
-              <img src="https://youaremywind.github.io/post-images/hello-gridea.png" alt="Hello Gridea">
+              <img src="https://youaremywind.github.io/post-images/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi.png" alt="Nginx反向代理到Tomcat服务器">
             
             <div class="post-content">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+              <p>由于比较懒自己的三台服务器都直接使用LNMP一键安装包 和我一样懒得的可以试试<br>
+最近想在服务器上搞点东西于是就在原来lnmp的基础上配置了tomcat和java环境变量</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<p>在实际生产中，Tomcat服务器一般不单独使用在项目中，对于静态资源的响应Nginx表现的比较好，另外由于nginx是专门用于反向代理的服务器，所以很容易实现将java的请求转发到后端交给tomcat容器处理，而本身用来处理静态资源</p>
+<p>在Nginx中，一个server {}块往往用来配置一个比较大的项目，一般就是对于一个域名的所有配置，一个server块内一般有多个location来定义多个请求规则，比如域名和根目录配置，静态资源支持，php fastcgi请求，url重写，错误页面配置等多种配置，所以nginx代理tomcat和前面的转发php-fpm一样，就是将请求转发到后端的动态模块去处理该请求</p>
+<p>下面在server中简单配置一个location局部规则，将指定的nginx请求转发至tomcat容器</p>
+<p>假设tomcat已经正常运行，端口号为8080，首先使用vim编辑nginx.conf配置文件，比如： vim /usr/local/nginx/nginx.conf<br>
+然后在server {}块最后，补充下面的内容：</p>
+<pre><code>location ^~ /tomcat/ {
+              proxy_pass  http://localhost:8080;
+              proxy_set_header    Host    $host;
+              proxy_set_header    X-Real-IP   $remote_addr;
+              proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+            }
+</code></pre>
+<p>因为上面配置了php-fpm的支持，所以这里使用/tomcat/请求来确定是否转发到tomcat容器，前面的^~就是匹配任意的域名或者IP地址部分，所以当访问http://ip/tomcat这样的请求时，那么tomcat容器就会起作用，和访问http://ip:8080效果是一样的，包括容器下的项目都是完全一样的</p>
+<p>保存之后，重新载入nginx配置文件： /usr/local/nginx/nginx -s reload<br>
+又是那只熟悉的小猫</p>
 
             </div>
           </article>
@@ -131,9 +132,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://youaremywind.github.io/post/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi">
+              <a href="https://youaremywind.github.io/post/mybatis-generator-de-keng">
                 <h3 class="post-title">
-                  Nginx反向代理到Tomcat服务器
+                  MyBatis Generator的坑
                 </h3>
               </a>
             </div>
@@ -208,11 +209,11 @@
     </div>
     <div class="row">
       
-        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge ">
+        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge warning">
           Gridea
         </a>
       
-        <a href="https://youaremywind.github.io/tag/sbI0ZiRsm" class="badge warning">
+        <a href="https://youaremywind.github.io/tag/sbI0ZiRsm" class="badge ">
           Nginx
         </a>
       
@@ -220,7 +221,7 @@
           Tomcat
         </a>
       
-        <a href="https://youaremywind.github.io/tag/jffTMs7Lw" class="badge ">
+        <a href="https://youaremywind.github.io/tag/jffTMs7Lw" class="badge warning">
           Mybatis
         </a>
       
