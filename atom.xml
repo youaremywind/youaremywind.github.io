@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-07T08:54:37.938Z</updated>
+    <updated>2019-10-08T08:49:56.435Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://youaremywind.github.io/images/avatar.png</logo>
     <icon>https://youaremywind.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 从未到过的地方</rights>
+    <entry>
+        <title type="html"><![CDATA[电脑升级个Catalina 10.15]]></title>
+        <id>https://youaremywind.github.io/post/dian-nao-sheng-ji-ge-catalina-1015</id>
+        <link href="https://youaremywind.github.io/post/dian-nao-sheng-ji-ge-catalina-1015">
+        </link>
+        <updated>2019-10-08T08:40:34.000Z</updated>
+        <summary type="html"><![CDATA[<p>就我而言每个苹果设备都会升级，升级到知道他升级不了才算被淘汰</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>就我而言每个苹果设备都会升级，升级到知道他升级不了才算被淘汰</p>
+<!-- more -->
+<p><img src="https://youaremywind.github.io/post-images/1570524138558.png" alt=""><br>
+<img src="https://youaremywind.github.io/post-images/1570524131297.png" alt=""><br>
+<img src="https://youaremywind.github.io/post-images/1570524246060.png" alt=""><br>
+家里的new ipad已经不能更新到ios13了 差不多已经被苹果公司给抛弃了 等双十一还是什么时候去买个新的ipad 来配合Catalina来做Sidecar<br>
+目前也没发现有啥bug</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[搬家]]></title>
         <id>https://youaremywind.github.io/post/ban-jia</id>
