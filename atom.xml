@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-09T09:25:46.642Z</updated>
+    <updated>2019-10-10T09:52:29.993Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -10,6 +10,100 @@
     <logo>https://youaremywind.github.io/images/avatar.png</logo>
     <icon>https://youaremywind.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 从未到过的地方</rights>
+    <entry>
+        <title type="html"><![CDATA[SpringCloud 学习]]></title>
+        <id>https://youaremywind.github.io/post/springcloud-xue-xi</id>
+        <link href="https://youaremywind.github.io/post/springcloud-xue-xi">
+        </link>
+        <updated>2019-10-09T09:39:24.000Z</updated>
+        <summary type="html"><![CDATA[<p>在b站看尚硅谷SpringCloud视频，先啃了一遍。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在b站看尚硅谷SpringCloud视频，先啃了一遍。</p>
+<!-- more -->
+<p>最近刚学习了一下Spring Cloud，发现还有个Spring Cloud Alibaba。</p>
+<p>微服务架构，更好的进行分布式系统开发。拆分单体应用，将一个应用拆分成多个服务，每一个服务都是一个可以独立运行的项目。</p>
+<p>分布式系统开发一定会遇到的四个问题：</p>
+<p>1、这么多服务，客户端如何访问</p>
+<p>2、这么多服务，服务之间如何通信</p>
+<p>3、这么多服务，如何治理</p>
+<p>4、服务挂了，怎么办？</p>
+<h3 id="解决方案">解决方案</h3>
+<p>Spring Cloud ，是一套生态，是为了解决微服务架构遇到的问题</p>
+<p>1、Spring Cloud Netflix</p>
+<p>API网关，Zuul组件</p>
+<p>服务注册与发现，Eureka</p>
+<p>Feign-&gt;Http Client -&gt;HTTP的通信方式，同步并阻塞</p>
+<p>熔断机制Hystrix</p>
+<p>2、Apache Dubbo Zookeeper</p>
+<p>API网关，没有，再找第三方或自己实现</p>
+<p>Dubbo 是一个高性能的Java RPC通信框架2.6.x</p>
+<p>服务注册与发现，Zookeeper</p>
+<p>服务挂了，Hystrix</p>
+<p>3、Spring Cloud Alibaba</p>
+<h2 id="spring-cloud-alibaba是什么">Spring Cloud Alibaba是什么</h2>
+<p><strong>简介</strong></p>
+<p>Spring Cloud Alibaba从名字上看，就知道一定跟Spring Cloud有关，但是我们为什么在Spring Cloud官方文档中看不到它的影子呢？因为它目前还是一个孵化项目，它的仓库也位于Spring Cloud孵化器中，Github地址：https://github.com/spring-cloud-incubator/spring-cloud-alibaba。</p>
+<p><strong>版本关系</strong></p>
+<h2 id="spring-cloud-alibaba现阶段版本的特殊性">Spring Cloud Alibaba现阶段版本的特殊性</h2>
+<p>现在的Spring Cloud Alibaba由于没有纳入到Spring Cloud的主版本管理中，所以我们需要自己去引入其版本信息，比如之前教程中的例子：</p>
+<pre><code class="language-XML">&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;Finchley.SR1&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;0.2.1.RELEASE&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre>
+<p>而不是像以往使用Spring Cloud的时候，直接引入Spring Cloud的主版本（Dalston、Edgware、Finchley、Greenwich这些）就可以的。我们需要像上面的例子那样，单独的引入<code>spring-cloud-alibaba-dependencies</code>来管理Spring Cloud Alibaba下的组件版本。</p>
+<p>由于Spring Cloud基于Spring Boot构建，而Spring Cloud Alibaba又基于Spring Cloud Common的规范实现，所以当我们使用Spring Cloud Alibaba来构建微服务应用的时候，需要知道这三者之间的版本关系。</p>
+<p>下表整理了目前Spring Cloud Alibaba的版本与Spring Boot、Spring Cloud版本的兼容关系：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Spring Boot</th>
+<th style="text-align:left">Spring Cloud</th>
+<th style="text-align:left">Spring Cloud Alibaba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2.1.x</td>
+<td style="text-align:left">Greenwich</td>
+<td style="text-align:left">0.9.x</td>
+</tr>
+<tr>
+<td style="text-align:left">2.0.x</td>
+<td style="text-align:left">Finchley</td>
+<td style="text-align:left">0.2.x</td>
+</tr>
+<tr>
+<td style="text-align:left">1.5.x</td>
+<td style="text-align:left">Edgware</td>
+<td style="text-align:left">0.1.x</td>
+</tr>
+<tr>
+<td style="text-align:left">1.5.x</td>
+<td style="text-align:left">Dalston</td>
+<td style="text-align:left">0.1.x</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以上版本对应内容根据当前情况实时调整修改，以方便用户了解他们的对应关系变化情况</strong></p>
+<p><strong>功能特性：</strong></p>
+<p>Spring Cloud Alibaba不是一个简单的组件，而是一个综合套件。其中涵盖了非常多的内容，包括：服务治理、配置管理、限流降级以及对阿里开源生态（Dubbo、RocketMQ等）支持的诸多组件。更多详细详细，读者可查阅其<a href="https://github.com/spring-cloud-incubator/spring-cloud-alibaba/blob/master/README-zh.md">官方文档</a>。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[电脑升级个Catalina 10.15]]></title>
         <id>https://youaremywind.github.io/post/dian-nao-sheng-ji-ge-catalina-1015</id>
