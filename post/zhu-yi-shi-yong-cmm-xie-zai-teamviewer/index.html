@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 从未到过的地方</title>
+<title>注意使用cmm卸载TeamViewer | 从未到过的地方</title>
 <meta name="description" content="做到了，就快乐。做不到，就沮丧。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://youaremywind.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://youaremywind.github.io">从未到过的地方</a></h3>
@@ -79,32 +86,50 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="row tags-container">
+          <article class="article">
+            <h1>注意使用cmm卸载TeamViewer</h1>
+            <p class="article-meta">
+              2019-10-15
+              
+            </p>
             
-              <a href="https://youaremywind.github.io/tag/bMwZav-gC" class="badge secondary">
-                碎碎念
-              </a>
-            
-              <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge ">
-                Gridea
-              </a>
-            
-              <a href="https://youaremywind.github.io/tag/sbI0ZiRsm" class="badge warning">
-                Nginx
-              </a>
-            
-              <a href="https://youaremywind.github.io/tag/VM-rIjpz-E" class="badge warning">
-                Tomcat
-              </a>
-            
-              <a href="https://youaremywind.github.io/tag/jffTMs7Lw" class="badge warning">
-                Mybatis
-              </a>
-            
-          </div>
+            <div class="post-content">
+              <p>升级到 最新系统Catalina 后，卸载了TeamViewer ，重启电脑后，就开机不了了，恢复模式也不行。</p>
+<!-- more -->
+<p>升级到 最新系统Catalina 后，爆出tv有问题，就想卸了tv。用 cmm 卸载之后，由于要重启电脑，于是就近重启。结果重启后蹦出一个错误提示框</p>
+<p>Error:</p>
+<p>unrecoverable error</p>
+<p>SecurityAgent failed to create requested mechanism TeamViewerAuthPlugin:start</p>
+<p>连登陆界面都不显示了，进安全模式也没有用，总之就是没法正常开机。后来进恢复模式，从朋友的 mac 上拷贝来 /Library/Security/SecurityAgentPlugins/TeamViewerAuthPlugin.bundle 才能够正常启动。</p>
+
+            </div>
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youaremywind.github.io/post/springcloud-xue-xi">
+                <h3 class="post-title">
+                  SpringCloud 学习
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://youaremywind.github.io/images/avatar.png?v=1571136021229" class="no-responsive avatar">
@@ -181,11 +206,11 @@
     </div>
     <div class="row">
       
-        <a href="https://youaremywind.github.io/tag/bMwZav-gC" class="badge secondary">
+        <a href="https://youaremywind.github.io/tag/bMwZav-gC" class="badge warning">
           碎碎念
         </a>
       
-        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge warning">
+        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge secondary">
           Gridea
         </a>
       
@@ -193,11 +218,11 @@
           Nginx
         </a>
       
-        <a href="https://youaremywind.github.io/tag/VM-rIjpz-E" class="badge ">
+        <a href="https://youaremywind.github.io/tag/VM-rIjpz-E" class="badge secondary">
           Tomcat
         </a>
       
-        <a href="https://youaremywind.github.io/tag/jffTMs7Lw" class="badge ">
+        <a href="https://youaremywind.github.io/tag/jffTMs7Lw" class="badge warning">
           Mybatis
         </a>
       
@@ -207,7 +232,8 @@
     Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://youaremywind.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-  
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -219,6 +245,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '6e81dd6e0f0c7ab2348d',
+        clientSecret: 'e58ec98abf78fe0b08a2f57f84db739efe782660',
+        repo: 'youaremywind.github.io',
+        owner: 'youaremywind',
+        admin: ['youaremywind'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
