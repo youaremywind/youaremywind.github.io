@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-15T10:40:24.434Z</updated>
+    <updated>2019-10-16T05:51:18.363Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -20,10 +20,8 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>升级到 最新系统Catalina 后，卸载了TeamViewer ，重启电脑后，就开机不了了，恢复模式也不行。</p>
 <!-- more -->
-<p>升级到 最新系统Catalina 后，爆出tv有问题，就想卸了tv。用 cmm 卸载之后，由于要重启电脑，于是就近重启。结果重启后蹦出一个错误提示框</p>
-<p>Error:</p>
-<p>unrecoverable error</p>
-<p>SecurityAgent failed to create requested mechanism TeamViewerAuthPlugin:start</p>
+<p>升级到 最新系统Catalina 后，爆出tv有问题，就想卸了tv。用 cmm 卸载之后，由于要重启电脑，于是就近重启。结果重启后蹦出一个错误提示框<br>
+<img src="https://youaremywind.github.io/post-images/1571205056996.jpeg" alt=""></p>
 <p>连登陆界面都不显示了，进安全模式也没有用，总之就是没法正常开机。后来进恢复模式，从朋友的 mac 上拷贝来 /Library/Security/SecurityAgentPlugins/TeamViewerAuthPlugin.bundle 才能够正常启动。</p>
 ]]></content>
     </entry>
