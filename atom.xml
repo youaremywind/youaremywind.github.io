@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-16T05:51:18.363Z</updated>
+    <updated>2019-10-18T08:06:59.254Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://youaremywind.github.io/images/avatar.png</logo>
     <icon>https://youaremywind.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 从未到过的地方</rights>
+    <entry>
+        <title type="html"><![CDATA[mac恢复模式u盘拷文件到系统磁盘]]></title>
+        <id>https://youaremywind.github.io/post/mac-hui-fu-mo-shi-u-pan-kao-wen-jian-dao-xi-tong-ci-pan</id>
+        <link href="https://youaremywind.github.io/post/mac-hui-fu-mo-shi-u-pan-kao-wen-jian-dao-xi-tong-ci-pan">
+        </link>
+        <updated>2019-10-18T07:32:13.000Z</updated>
+        <content type="html"><![CDATA[<p>之前写的那篇clean my mac 卸载 teamviewer 导致系统不能开机了 。那么怎么将文件传进去呢？方法很多两台mac连着 然后传文件 因为这个线一般人都没有，所有pass 。<br>
+1、我是使用丢在服务器上，然后联网下载。注意文件的权限，http访问不到那个资源，curl会把403页面下下来了，改成了tar后缀。<br>
+2、网上的方法是使用 U 盘拷的，比如说需要的文件夹 TeamViewerAuthPlugin.bundle 就在 /Volumes/u盘名字/ 里面，我要拷到 /Volumes/Macintosh HD/Library/Security/SecurityAgentPlugins/ 路径下。如果提示 Macintosh HD 是 read-only，那就拷到 /Volumes/Macintosh HD - Data/Library/Security/SecurityAgentPlugins/ 路径下，没有文件夹的话就创建文件夹，这个路径是不用 sudo 的。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[注意使用cmm卸载TeamViewer]]></title>
         <id>https://youaremywind.github.io/post/zhu-yi-shi-yong-cmm-xie-zai-teamviewer</id>
