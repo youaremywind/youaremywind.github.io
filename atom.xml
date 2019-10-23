@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-18T08:06:59.254Z</updated>
+    <updated>2019-10-23T12:04:50.605Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -10,6 +10,46 @@
     <logo>https://youaremywind.github.io/images/avatar.png</logo>
     <icon>https://youaremywind.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 从未到过的地方</rights>
+    <entry>
+        <title type="html"><![CDATA[Spring Boot 在自定义类中调用service层]]></title>
+        <id>https://youaremywind.github.io/post/spring-boot-zai-zi-ding-yi-lei-zhong-diao-yong-service-ceng</id>
+        <link href="https://youaremywind.github.io/post/spring-boot-zai-zi-ding-yi-lei-zhong-diao-yong-service-ceng">
+        </link>
+        <updated>2019-10-23T11:36:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>背景：在做个钉钉考勤的工具类时候，调用service层，报了空指针异常。发现按照controller中通过@Autowired注入service层失效。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>背景：在做个钉钉考勤的工具类时候，调用service层，报了空指针异常。发现按照controller中通过@Autowired注入service层失效。</p>
+<!-- more -->
+<p>话不多说解决方法：</p>
+<pre><code class="language-java">@Component
+public class DingtalkUtils {
+    @Autowired
+    private IRecordResultService iRecordResultService;
+    //静态初始化当前类
+    private static DingtalkUtils dingtalkUtils;
+    @PostConstruct//通过@PostConstruct实现初始化bean之前进行的操作
+    public void init() {
+        dingtalkUtils = this;
+        dingtalkUtils.iRecordResultService = this.iRecordResultService;
+        // 初使化时将已静态化的testService实例化
+    }
+
+    public void getUserRecord() throws ApiException {
+        DingTalkClient client = new DefaultDingTalkClient(&quot;https://oapi.dingtalk.com/attendance/listRecord&quot;);
+        OapiAttendanceListRecordRequest request = new OapiAttendanceListRecordRequest();
+        request.setCheckDateFrom(&quot;2019-10-16 00:00:00&quot;);
+        request.setCheckDateTo(&quot;2019-10-23 00:00:00&quot;);
+        request.setUserIds(Arrays.asList(&quot;manager8074&quot;));
+        String accessToken= getToken();
+        OapiAttendanceListRecordResponse execute = client.execute(request,accessToken);
+        String recordResult=execute.getBody();
+        RecordResponseBody recordResponseBody= JSONArray.parseObject(recordResult, RecordResponseBody.class);
+        List&lt;RecordResult&gt; recordResults=recordResponseBody.getRecordresult();
+        dingtalkUtils.iRecordResultService.saveOrUpdateBatch(recordResults);
+    }
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[mac恢复模式u盘拷文件到系统磁盘]]></title>
         <id>https://youaremywind.github.io/post/mac-hui-fu-mo-shi-u-pan-kao-wen-jian-dao-xi-tong-ci-pan</id>

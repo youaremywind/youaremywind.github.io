@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Tomcat | 从未到过的地方</title>
+<title>Spring Boot 在自定义类中调用service层 | 从未到过的地方</title>
 <meta name="description" content="做到了，就快乐。做不到，就沮丧。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://youaremywind.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://youaremywind.github.io">从未到过的地方</a></h3>
@@ -79,46 +86,73 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: Tomcat</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://youaremywind.github.io/post/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi">Nginx反向代理到Tomcat服务器</a>
-    </h2>
-    <p class="article-meta">
-      2018-07-05
-      
-        <a href="https://youaremywind.github.io/tag/sbI0ZiRsm" class="badge success">
-          Nginx
-        </a>
-      
-        <a href="https://youaremywind.github.io/tag/VM-rIjpz-E" class="badge warning">
-          Tomcat
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>由于比较懒自己的三台服务器都直接使用LNMP一键安装包 和我一样懒得的可以试试<br>
-最近想在服务器上搞点东西于是就在原来lnmp的基础上配置了tomcat和java环境变量</p>
+          <article class="article">
+            <h1>Spring Boot 在自定义类中调用service层</h1>
+            <p class="article-meta">
+              2019-10-23
+              
+            </p>
+            
+            <div class="post-content">
+              <p>背景：在做个钉钉考勤的工具类时候，调用service层，报了空指针异常。发现按照controller中通过@Autowired注入service层失效。</p>
+<!-- more -->
+<p>话不多说解决方法：</p>
+<pre><code class="language-java">@Component
+public class DingtalkUtils {
+    @Autowired
+    private IRecordResultService iRecordResultService;
+    //静态初始化当前类
+    private static DingtalkUtils dingtalkUtils;
+    @PostConstruct//通过@PostConstruct实现初始化bean之前进行的操作
+    public void init() {
+        dingtalkUtils = this;
+        dingtalkUtils.iRecordResultService = this.iRecordResultService;
+        // 初使化时将已静态化的testService实例化
+    }
 
-    </p>
-    <div class="row">
-      <a href="https://youaremywind.github.io/post/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+    public void getUserRecord() throws ApiException {
+        DingTalkClient client = new DefaultDingTalkClient(&quot;https://oapi.dingtalk.com/attendance/listRecord&quot;);
+        OapiAttendanceListRecordRequest request = new OapiAttendanceListRecordRequest();
+        request.setCheckDateFrom(&quot;2019-10-16 00:00:00&quot;);
+        request.setCheckDateTo(&quot;2019-10-23 00:00:00&quot;);
+        request.setUserIds(Arrays.asList(&quot;manager8074&quot;));
+        String accessToken= getToken();
+        OapiAttendanceListRecordResponse execute = client.execute(request,accessToken);
+        String recordResult=execute.getBody();
+        RecordResponseBody recordResponseBody= JSONArray.parseObject(recordResult, RecordResponseBody.class);
+        List&lt;RecordResult&gt; recordResults=recordResponseBody.getRecordresult();
+        dingtalkUtils.iRecordResultService.saveOrUpdateBatch(recordResults);
+    }
+</code></pre>
 
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://youaremywind.github.io/post/mac-hui-fu-mo-shi-u-pan-kao-wen-jian-dao-xi-tong-ci-pan">
+                <h3 class="post-title">
+                  mac恢复模式u盘拷文件到系统磁盘
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://youaremywind.github.io/images/avatar.png?v=1571832285684" class="no-responsive avatar">
@@ -211,15 +245,15 @@
           mac
         </a>
       
-        <a href="https://youaremywind.github.io/tag/Giy3MjODiC" class="badge secondary">
+        <a href="https://youaremywind.github.io/tag/Giy3MjODiC" class="badge success">
           CleanMyMac
         </a>
       
-        <a href="https://youaremywind.github.io/tag/bMwZav-gC" class="badge warning">
+        <a href="https://youaremywind.github.io/tag/bMwZav-gC" class="badge success">
           碎碎念
         </a>
       
-        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge success">
+        <a href="https://youaremywind.github.io/tag/KkcakYksO" class="badge ">
           Gridea
         </a>
       
@@ -242,6 +276,7 @@
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -253,6 +288,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '6e81dd6e0f0c7ab2348d',
+        clientSecret: 'e58ec98abf78fe0b08a2f57f84db739efe782660',
+        repo: 'youaremywind.github.io',
+        owner: 'youaremywind',
+        admin: ['youaremywind'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
