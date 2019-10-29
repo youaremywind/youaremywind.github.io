@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://youaremywind.github.io</id>
     <title>从未到过的地方</title>
-    <updated>2019-10-23T12:04:50.605Z</updated>
+    <updated>2019-10-29T10:19:48.344Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://youaremywind.github.io"/>
     <link rel="self" href="https://youaremywind.github.io/atom.xml"/>
@@ -10,6 +10,99 @@
     <logo>https://youaremywind.github.io/images/avatar.png</logo>
     <icon>https://youaremywind.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 从未到过的地方</rights>
+    <entry>
+        <title type="html"><![CDATA[Navicat 产品系列激活]]></title>
+        <id>https://youaremywind.github.io/post/navicat-chan-pin-xi-lie-ji-huo</id>
+        <link href="https://youaremywind.github.io/post/navicat-chan-pin-xi-lie-ji-huo">
+        </link>
+        <updated>2019-10-29T09:43:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>之前都是安装破解好的版本的数据库管理软件。最近发现了一个开源的破解navicat系列的网站，直接下载最新版本的navicat软件，然后破解就好了</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>之前都是安装破解好的版本的数据库管理软件。最近发现了一个开源的破解navicat系列的网站，直接下载最新版本的navicat软件，然后破解就好了</p>
+<!-- more -->
+<p>1、先去官网 https://www.navicat.com.cn/ 下载符合自己系统的软件<br>
+如何使用这个注册机<br>
+2、https://github.com/DoubleLabyrinth/navicat-keygen/releases 在这里下载最新的包。</p>
+<p>使用navicat-patcher.exe替换掉navicat.exe和libcc.dll里的Navicat激活公钥。</p>
+<p>navicat-patcher.exe <Navicat installation path> <a href="RSA-2048%E7%A7%81%E9%92%A5%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E8%B7%AF%E5%BE%84%E6%88%96%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E3%80%82">RSA-2048 PEM file</a><br>
+<Navicat installation path>: Navicat的完整安装路径。<br>
+这个参数必须指定。</p>
+<p>这个参数是可选的。 如果未指定，navicat-patcher.exe将会在当前目录生成一个新的RSA-2048私钥文件。</p>
+<p>例如：(在cmd.exe中)</p>
+<p>navicat-patcher.exe &quot;C:\Program Files\PremiumSoft\Navicat Premium 12&quot;<br>
+地址字符串必须用双引号，使用单引号会报错</p>
+<p>接下来使用navicat-keygen.exe来生成序列号和激活码<br>
+navicat-keygen.exe &lt;-bin|-text&gt; <a href="%E5%BC%80%E5%90%AF%E9%AB%98%E7%BA%A7%E6%A8%A1%E5%BC%8F%E3%80%82">-adv</a> &lt;RSA-2048 PrivateKey(PEM file)&gt;<br>
+&lt;-bin|-text&gt;: 必须是-bin或-text。<br>
+如果指定了-bin，navicat-keygen.exe最终将生成license_file文件。这个选项是给Navicat旧激活方式使用的。</p>
+<p>如果指定了-text，navicat-keygen.exe最终将生成Base64样式的激活码。这个选项是给Navicat新激活方式使用的。</p>
+<p>这个参数必须指定。</p>
+<p>这个参数是可选的。 如果指定了这个参数，navicat-keygen.exe将会要求你手工填写产品ID号、语言标识号。这个选项一般是给以后用的。</p>
+<p>&lt;RSA-2048 PrivateKey(PEM file)&gt;: RSA-2048私钥文件的完整路径或相对路径。<br>
+这个参数必须指定。</p>
+<p>例如：(在cmd.exe中)</p>
+<p>navicat-keygen.exe -text .\RegPrivateKey.pem<br>
+你会被要求选择Navicat产品类别、语言以及输入主版本号。之后会随机生成一个序列号。</p>
+<p>Select Navicat product:</p>
+<ol>
+<li>DataModeler</li>
+<li>Premium</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Oracle</li>
+<li>SQLServer</li>
+<li>SQLite</li>
+<li>MariaDB</li>
+<li>MongoDB</li>
+<li>ReportViewer</li>
+</ol>
+<p>(Input index)&gt; 1</p>
+<p>Select product language:<br>
+0. English</p>
+<ol>
+<li>Simplified Chinese</li>
+<li>Traditional Chinese</li>
+<li>Japanese</li>
+<li>Polish</li>
+<li>Spanish</li>
+<li>French</li>
+<li>German</li>
+<li>Korean</li>
+<li>Russian</li>
+<li>Portuguese</li>
+</ol>
+<p>(Input index)&gt; 1</p>
+<p>(Input major version number, range: 0 ~ 15, default: 12)&gt; 12</p>
+<p>Serial number:<br>
+NAVO-2ORP-IN5A-GQEE</p>
+<p>Your name:<br>
+你可以使用这个序列号暂时激活Navicat。</p>
+<p>接下来你会被要求输入用户名和组织名；请随便填写，但不要太长。</p>
+<p>Your name: root<br>
+Your organization: root<br>
+Input request code (in Base64), input empty line to end:<br>
+之后你会被要求填入请求码，该请求码是在navicat中输入上方生成序列号进行离线激活后，会生成一段请求码，然后复制过来。注意 不要关闭命令行.<br>
+断开网络 并打开Navicat。找到注册窗口，并填入keygen给你的序列号。然后点击激活按钮。<br>
+一般来说在线激活肯定会失败，这时候Navicat会询问你是否手动激活，直接选吧。<br>
+在手动激活窗口你会得到一个请求码，复制它并把它粘贴到keygen里。最后别忘了连按至少 两下回车 结束输入。<br>
+Your name: root<br>
+Your organization: root<br>
+Input request code (in Base64), input empty line to end:<br>
+EnoJQKOD5h08rGvcpxJ288YwA0e5AjIlu/WQUVde9rcnjC4RfYPQ83Rp047nohWBn02UELpAt9NAVWp6Nww+4gxQjgkXJ19wb6cRY+V68xLIJbZXmByXBQwWL4X4lB3RxpcS5y2fAk/iipFaFu5XE8yhC1o129IVuuaCE3lwzAuB563BKSKmp4Xr1vSqW6EDeCtKp8PY91nSt4htHF11Sfx8v0ASfdbu75ePTB3Rf/nzkbCKv8E63E6mVSRWqDuQ8didqXQhci7qjPICvBD6ne5FZhDGEJi6hNSwdKeTbj/ZUBxFScZYWsskFjVL5u5RcdLo0Gzp8H7YOTI7OfJarg==</p>
+<p>Request Info:<br>
+{&quot;K&quot;:&quot;NAVADD22GI4NXPU5&quot;, &quot;DI&quot;:&quot;DJym852txVo8XGZkDzPn&quot;, &quot;P&quot;:&quot;WIN&quot;}</p>
+<p>Response Info:<br>
+{&quot;K&quot;:&quot;NAVADD22GI4NXPU5&quot;,&quot;DI&quot;:&quot;DJym852txVo8XGZkDzPn&quot;,&quot;N&quot;:&quot;root&quot;,&quot;O&quot;:&quot;root&quot;,&quot;T&quot;:1565768523}</p>
+<p>License:<br>
+GUk9coMkfoI2AtUiQ2PfDjlR6rybOrhY+q6azg5f7H+AwgIsVp6jWS1vb2NgkiXx<br>
+u9NuoNeR8T2JiOqRC90umfdEqit0MGaGpDL/Wk6o+HNcKZmdbl9tImhGxxaj3Qib<br>
+Yn3EzIQOz+hP7ipoG7kmIxzvmBOok0tDhrOhDzhzsPmAvFxTndQgU5hgCOIcHJVT<br>
+PerF/SK/lTMHSWqgwNyl2M3APBCxvCIjw6omFNwRXY3JD3zKUIiSWqsQT0mCBDby<br>
+4k1V7IhCBzOHpBTHLLbjSG8copp37rgcn8PK0FFL8yUCDCmYzDBvE8B1KTYgmNn6<br>
+dWf7BT0jyOoRIoYwIApNmQ==</p>
+<p>如果不出意外，你会得到一个看似用Base64编码的激活码 license。直接复制它，并把它粘贴到Navicat的手动激活窗口，最后点激活按钮。如果没什么意外的话应该能成功激活。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Spring Boot 在自定义类中调用service层]]></title>
         <id>https://youaremywind.github.io/post/spring-boot-zai-zi-ding-yi-lei-zhong-diao-yong-service-ceng</id>
