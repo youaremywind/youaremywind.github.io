@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Spring Boot 在自定义类中调用service层 | 从未到过的地方</title>
+<title>DevUtils.app Xcode编译 | 从未到过的地方</title>
 <meta name="description" content="做到了，就快乐。做不到，就沮丧。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,43 +87,104 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>Spring Boot 在自定义类中调用service层</h1>
+            <h1>DevUtils.app Xcode编译</h1>
             <p class="article-meta">
-              2019-10-23
+              2021-01-30
               
             </p>
             
             <div class="post-content">
-              <p>背景：在做个钉钉考勤的工具类时候，调用service层，报了空指针异常。发现按照controller中通过@Autowired注入service层失效。</p>
-<!-- more -->
-<p>话不多说解决方法：</p>
-<pre><code class="language-java">@Component
-public class DingtalkUtils {
-    @Autowired
-    private IRecordResultService iRecordResultService;
-    //静态初始化当前类
-    private static DingtalkUtils dingtalkUtils;
-    @PostConstruct//通过@PostConstruct实现初始化bean之前进行的操作
-    public void init() {
-        dingtalkUtils = this;
-        dingtalkUtils.iRecordResultService = this.iRecordResultService;
-        // 初使化时将已静态化的testService实例化
-    }
-
-    public void getUserRecord() throws ApiException {
-        DingTalkClient client = new DefaultDingTalkClient(&quot;https://oapi.dingtalk.com/attendance/listRecord&quot;);
-        OapiAttendanceListRecordRequest request = new OapiAttendanceListRecordRequest();
-        request.setCheckDateFrom(&quot;2019-10-16 00:00:00&quot;);
-        request.setCheckDateTo(&quot;2019-10-23 00:00:00&quot;);
-        request.setUserIds(Arrays.asList(&quot;manager8074&quot;));
-        String accessToken= getToken();
-        OapiAttendanceListRecordResponse execute = client.execute(request,accessToken);
-        String recordResult=execute.getBody();
-        RecordResponseBody recordResponseBody= JSONArray.parseObject(recordResult, RecordResponseBody.class);
-        List&lt;RecordResult&gt; recordResults=recordResponseBody.getRecordresult();
-        dingtalkUtils.iRecordResultService.saveOrUpdateBatch(recordResults);
-    }
+              <p>Developer Utilities for macOS</p>
+<p><img src="https://youaremywind.github.io/post-images/1612015063301.png" alt="" loading="lazy"><br>
+Format/Validate JSON, encode/decode Base64, convert timestamps, debug JWT… with just one click! Native macOS app, works offline, and open source.<br>
+这是一款付费开源的软件，他提供的编译版是收费的，自己编译就免费了。<br>
+于是自己编译吧。<br>
+<a href="https://github.com/DevUtilsApp/DevUtils-app">附上地址:https://github.com/DevUtilsApp/DevUtils-app</a><br>
+开发环境:</p>
+<ul>
+<li>
+<p>Swift 5.1+</p>
+</li>
+<li>
+<p>Xcode 11.1+</p>
+</li>
+<li>
+<p>Swift Package Manager</p>
+</li>
+<li>
+<p>Carthage<br>
+编译说明：</p>
+</li>
+<li>
+<p>克隆仓库到本地。</p>
+</li>
+<li>
+<p>Bootstrap carthage, 这个是安装所需要的依赖:</p>
+<p><code>carthage bootstrap --platform macOS</code>（不安装会报依赖找不到）</p>
+</li>
+<li>
+<p>在Xcode中将签名团队更新为您的个人或组织团队。 这是在本地构建应用程序所必需的。 如果您在代码签名方面遇到问题，还请查看以下文章以查看是否有帮助：</p>
+<ul>
+<li>https://developer.apple.com/support/code-signing/</li>
+<li>https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7</li>
+</ul>
+</li>
+<li>
+<p>在Xcode中跑起来。</p>
+</li>
+</ul>
+<p><strong>Bootstrap carthage 安装：</strong><br>
+1.brew<br>
+安装carthage之前需要安装brew，进入官网(https://brew.sh/index_zh-cn.html) 有详细的安装步骤。<br>
+获取 Homebrew<br>
+打开终端Terminal，输入以下命令：</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre>
+<p>获取最新版本</p>
+<pre><code>brew update
+</code></pre>
+<p>注意：如果遇到Error: The /usr/local directory is not writable.错误，就执行以下命令sudo chown -R $(whoami):admin /usr/local，再更新。</p>
+<p>2.安装Carthage<br>
+安装brew之后，就可以安装Carthage了。</p>
+<pre><code>brew install carthage
+</code></pre>
+<p>安装Carthage之后，查看版本</p>
+<pre><code>carthage version   //目前的版本号为0.15.2
+</code></pre>
+<ol>
+<li>使用Carthage</li>
+</ol>
+<p>进入项目所在文件夹<br>
+<code>cd ~/路径/项目文件夹</code><br>
+创建一个空的carthage文件<br>
+<code>touch Cartfile</code><br>
+此时项目文件夹中会有一个名字为Carthage的文件<br>
+使用Xcode打开该文件<br>
+<code>open -a Xcode Cartfile</code><br>
+编辑Cartfile<br>
+<code>github &quot;SVProgressHUD/SVProgressHUD&quot; ~&gt; 1.0</code><br>
+Cartfile格式说明<br>
+依赖源<code>Dependency origin</code><br>
+Carthage支持两种类型的源，一个是github，另一个是git。<br>
+github 表示依赖源，告诉Carthage去哪里下载文件。依赖源之后跟上要下载的库，格式为Username/ProjectName<br>
+git 关键字后面跟的是资料库的地址，可以是远程的URL地址，使用git://, http://, ssh://，或者是本地资料库地址。<br>
+依赖版本号 <code>Dependency Version</code><br>
+告诉Carthage使用哪个版本，这是可选的，不写默认使用最新版本</p>
+<pre><code>== 1.0 表示使用1.0版本
+
+&gt;= 1.0 表示使用1.0或更高的版本
+
+~&gt; 1.0 表示使用版本1.0以上但是低于2.0的最新版本，如1.2，1.6
+</code></pre>
+<p><code>branch名称 / tag名称 / commit</code>名称，意思是使用特定的分支/标签/提交，比如可以是分支名master，也可以是提交5c8a74a。<br>
+运行命令<br>
+<code>carthage bootstrap --platform macOS</code><br>
+报了一个使用Carthage 错误 <code>error: unable to find utility &quot;xcodebuild&quot;, not a developer tool or in PATH</code><br>
+google 了一下发现要<br>
+<img src="https://youaremywind.github.io/post-images/1612016125582.png" alt="" loading="lazy"><br>
+打开xcode 运行发现：<br>
+<img src="https://youaremywind.github.io/post-images/1612016498842.jpeg" alt="" loading="lazy"><br>
+报错了，好像是没有这个包，可能是我💻是m1 芯片的原因，于是我修改成Rosetta运行：<img src="https://youaremywind.github.io/post-images/1612016574708.jpg" alt="" loading="lazy">成功了。将app拖到Application就好了。</p>
 
             </div>
           </article>
@@ -134,9 +195,9 @@ public class DingtalkUtils {
               <div class="next">
                 下一篇
               </div>
-              <a href="https://youaremywind.github.io/post/mac-hui-fu-mo-shi-u-pan-kao-wen-jian-dao-xi-tong-ci-pan/">
+              <a href="https://youaremywind.github.io/post/guan-yu-fu-wu-qi-shang-logback-zhong-wen-ri-zhi-luan-ma/">
                 <h3 class="post-title">
-                  mac恢复模式u盘拷文件到系统磁盘
+                  关于服务器上logback中文日志乱码？？？
                 </h3>
               </a>
             </div>
@@ -253,15 +314,15 @@ public class DingtalkUtils {
     </div>
     <div class="row">
       
-        <a href="https://youaremywind.github.io/tag/up8OVLWg8/" class="badge secondary">
+        <a href="https://youaremywind.github.io/tag/up8OVLWg8/" class="badge warning">
           mac
         </a>
       
-        <a href="https://youaremywind.github.io/tag/Giy3MjODiC/" class="badge ">
+        <a href="https://youaremywind.github.io/tag/Giy3MjODiC/" class="badge secondary">
           CleanMyMac
         </a>
       
-        <a href="https://youaremywind.github.io/tag/bMwZav-gC/" class="badge warning">
+        <a href="https://youaremywind.github.io/tag/bMwZav-gC/" class="badge secondary">
           碎碎念
         </a>
       
@@ -269,15 +330,15 @@ public class DingtalkUtils {
           Gridea
         </a>
       
-        <a href="https://youaremywind.github.io/tag/sbI0ZiRsm/" class="badge success">
+        <a href="https://youaremywind.github.io/tag/sbI0ZiRsm/" class="badge secondary">
           Nginx
         </a>
       
-        <a href="https://youaremywind.github.io/tag/VM-rIjpz-E/" class="badge ">
+        <a href="https://youaremywind.github.io/tag/VM-rIjpz-E/" class="badge warning">
           Tomcat
         </a>
       
-        <a href="https://youaremywind.github.io/tag/jffTMs7Lw/" class="badge ">
+        <a href="https://youaremywind.github.io/tag/jffTMs7Lw/" class="badge secondary">
           Mybatis
         </a>
       
