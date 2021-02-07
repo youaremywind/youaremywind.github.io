@@ -1,8 +1,8 @@
 <html>
   <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tomcat | 从未到过的地方</title>
+<title>Mac设置同时访问内外网 | 从未到过的地方</title>
 <meta name="description" content="做到了，就快乐。做不到，就沮丧。" />
 <link rel="shortcut icon" href="https://youaremywind.github.io/favicon.ico?v=1612665647762">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -70,51 +70,88 @@
   </div>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：# Tomcat
-            </h2> 
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Mac设置同时访问内外网
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-02-07
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://youaremywind.github.io/tag/uxd_EsBTL/" class="post-tag">
+                  # 网络
+                </a>
+              
+                <a href="https://youaremywind.github.io/tag/up8OVLWg8/" class="post-tag">
+                  # mac
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>在银行工作过程中，有时候我们需要使用网线连接电脑，连内网登录虚拟机访问虚拟桌面，外网用于日常使用。所以一般会将wifi设置成外网并优先访问，以太网设置为内网。但是当我第一次添加内网时，ping成功了，但是只能讲外网关掉才能访问，不能同时访问，此时我们需要要清除所有网络配置，重新设置一下就好。<br>
+具体操作：<br>
+1.打开终端<br>
+2.输入以下指令<br>
+netstat -rn --查看路由表<br>
+route get 0.0.0.0 --获取默认路由<br>
+sudo route delete 0.0.0.0 --删除默认路由<br>
+sudo route add -net 0.0.0.0 x.x.x.x --添加外网网关<br>
+sudo route add -net y.y.y.y x.x.x.x --添加内网网关（注意这里ip地址是自己要访问内网的ip地址，如果只访问某一台，可以将y.y.y.y改成固定的IP）<br>
+3.去网络设置里面设置服务顺序，这里设置外网wifi优先（选中拖动即可）</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://youaremywind.github.io/post/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi/">
-        <h2 class="post-title">Nginx反向代理到Tomcat服务器</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2018-07-05
-        </span>
-        <span>
-          2 min read
-        </span>
-        
-          <a href="https://youaremywind.github.io/tag/sbI0ZiRsm/" class="post-tag">
-            # Nginx
-          </a>
-        
-          <a href="https://youaremywind.github.io/tag/VM-rIjpz-E/" class="post-tag">
-            # Tomcat
-          </a>
-        
-      </div>
-      
-        <a href="https://youaremywind.github.io/post/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi/" class="post-feature-image" style="background-image: url('https://youaremywind.github.io/post-images/nginx-fan-xiang-dai-li-dao-tomcat-fu-wu-qi.png')">
-        </a>
-      
-      <div class="post-abstract">
-        <p>由于比较懒自己的三台服务器都直接使用LNMP一键安装包 和我一样懒得的可以试试<br>
-最近想在服务器上搞点东西于是就在原来lnmp的基础上配置了tomcat和java环境变量</p>
 
-      </div>
-    </article>
-  
-</div>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://youaremywind.github.io/post/devutilsapp-xcode-bian-yi/">
+              <h3 class="post-title">
+                DevUtils.app Xcode编译
+              </h3>
+            </a>
+          </div>
+        
 
-        <div class="pagination-container">
-  
-  
-</div>
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '6e81dd6e0f0c7ab2348d',
+    clientSecret: 'e58ec98abf78fe0b08a2f57f84db739efe782660',
+    repo: 'youaremywind.github.io',
+    owner: 'youaremywind',
+    admin: ['youaremywind'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
 
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
