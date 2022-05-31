@@ -1,0 +1,10 @@
+{
+    "editor.codeActionsOnSave": {
+    
+    },
+    "pasteImage.path": "${currentFileDir}/img",
+    "pasteImage.basePath": "${currentFileDir}",
+    "pasteImage.forceUnixStyleSeparator": true,
+    // "pasteImage.prefix": "/",
+    "pasteImage.insertPattern": "${imageSyntaxPrefix}./img/${imageFileName}${imageSyntaxSuffix}",
+}
