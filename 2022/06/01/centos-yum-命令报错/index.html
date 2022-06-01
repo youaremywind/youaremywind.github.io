@@ -16,22 +16,22 @@
   <meta name="author" content="柳遇安">
   <meta name="keywords" content="博客">
   
-    <meta name="description" content="Press RETURN&#x2F;ENTER to continue or any other key to abort:&#x3D;&#x3D;&gt; &#x2F;usr&#x2F;bin&#x2F;sudo &#x2F;usr&#x2F;sbin&#x2F;chown -R kingsley:admin &#x2F;usr&#x2F;local&#x2F;Homebrew&#x3D;&#x3D;&gt; Searching online for the Command Line Tools&#x3D;&#x3D;&gt; &#x2F;usr&#x2F;bin&#x2F;sud">
+    <meta name="description" content="今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。 执行命令： 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh 运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装brew时卡在Downloading Command Line Tools for Xcode">
-<meta property="og:url" content="http://example.com/2022/05/31/%E5%AE%89%E8%A3%85brew%E6%97%B6%E5%8D%A1%E5%9C%A8Downloading-Command-Line-Tools-for-Xcode/index.html">
+<meta property="og:title" content="Centos8使用yum命令报错">
+<meta property="og:url" content="http://example.com/2022/06/01/centos-yum-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99/index.html">
 <meta property="og:site_name" content="从未到过的地方">
-<meta property="og:description" content="Press RETURN&#x2F;ENTER to continue or any other key to abort:&#x3D;&#x3D;&gt; &#x2F;usr&#x2F;bin&#x2F;sudo &#x2F;usr&#x2F;sbin&#x2F;chown -R kingsley:admin &#x2F;usr&#x2F;local&#x2F;Homebrew&#x3D;&#x3D;&gt; Searching online for the Command Line Tools&#x3D;&#x3D;&gt; &#x2F;usr&#x2F;bin&#x2F;sud">
+<meta property="og:description" content="今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。 执行命令： 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh 运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repod">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-31T11:09:43.000Z">
-<meta property="article:modified_time" content="2022-05-31T11:17:35.078Z">
+<meta property="article:published_time" content="2022-06-01T05:09:41.000Z">
+<meta property="article:modified_time" content="2022-06-01T05:25:35.532Z">
 <meta property="article:author" content="柳遇安">
-<meta property="article:tag" content="mac">
+<meta property="article:tag" content="centos">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>安装brew时卡在Downloading Command Line Tools for Xcode - 从未到过的地方</title>
+  <title>Centos8使用yum命令报错 - 从未到过的地方</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="安装brew时卡在Downloading Command Line Tools for Xcode"></span>
+            <span id="subtitle" data-typed-text="Centos8使用yum命令报错"></span>
           
         </div>
 
@@ -205,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-31 19:09" pubdate>
-          2022年5月31日 晚上
+        <time datetime="2022-06-01 13:09" pubdate>
+          2022年6月1日 下午
         </time>
       </span>
     
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          358 字
+          2k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          3 分钟
+          17 分钟
         
       </span>
     
@@ -266,12 +266,43 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">安装brew时卡在Downloading Command Line Tools for Xcode</h1>
+            <h1 style="display: none">Centos8使用yum命令报错</h1>
             
             <div class="markdown-body">
               
-              <p>Press RETURN/ENTER to continue or any other key to abort:<br>==&gt; /usr/bin/sudo /usr/sbin/chown -R kingsley:admin /usr/local/Homebrew<br>==&gt; Searching online for the Command Line Tools<br>==&gt; /usr/bin/sudo /usr/bin/touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress</p>
-<p>卡在这一步骤时，可以去<a target="_blank" rel="noopener" href="https://developer.apple.com/download/more/%E4%B8%8A%E7%99%BB%E9%99%86%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC%EF%BC%88Xcode-11.4.1%EF%BC%89%E7%9A%84Command">https://developer.apple.com/download/more/上登陆，下载对应版本（Xcode-11.4.1）的Command</a> Line Tools ，然后手动安装。</p>
+              <p>今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。</p>
+<p>执行命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -sSL https://get.daocloud.io/docker | sh<br></code></pre></td></tr></table></figure>
+<p>运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried<br>那么百度一下：</p>
+<p>原因：2022年1月1日起CentOS官方将不再对CentOS 8提供服务支持,虽然系统可以正常使用,但CentOS 8的yum源已经移除无法使用了,使用yum安装会报错</p>
+<p>按顺序执行一下命令即可解决：<br>1、执行如下命令先将之前的yum文件备份：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rename &#x27;.repo&#x27; &#x27;.repo.bak&#x27; /etc/yum.repos.d/*.repo<br></code></pre></td></tr></table></figure>
+<p>2、运行以下命令下载最新的repo文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo -O /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://mirrors.aliyun.com/repo/epel-archive-8.repo -O /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
+<p>3、运行以下命令替换repo文件中的链接：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed -i &#x27;s/mirrors.cloud.aliyuncs.com/url_tmp/g&#x27;  /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp;  sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp; sed -i &#x27;s/url_tmp/mirrors.aliyun.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
+<p>4、运行以下命令重新创建缓存,若没报错,则正常了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum clean all &amp;&amp; yum makecache<br></code></pre></td></tr></table></figure>
+
+<p>结果又报错了<br>Errors during downloading metadata for repository ‘epel-archive’:</p>
+<ul>
+<li>Curl error (6): Couldn’t resolve host name for <a target="_blank" rel="noopener" href="http://mirrors.cloud.aliyuncs.com/epel-archive/8/Everything/x86_64/repodata/repomd.xml">http://mirrors.cloud.aliyuncs.com/epel-archive/8/Everything/x86_64/repodata/repomd.xml</a> [Could not resolve host: mirrors.cloud.aliyuncs.com]<br>Error: Failed to download metadata for repo ‘epel-archive’: Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried<br>那再百度下：<br>因为所用系统为Centos 8版本，暂时（此时为2022-03-16）已停止更新相应依赖，</li>
+</ul>
+<p>于是按照下面操作，解决问题</p>
+<p>1、备份源文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv /etc/yum.repos.d /etc/yum.repos.d.bak<br></code></pre></td></tr></table></figure>
+<p>2、创建源文件目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir -p /etc/yum.repos.d<br></code></pre></td></tr></table></figure>
+<p>3、下载新的yum源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo &gt; /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl https://mirrors.aliyun.com/repo/epel-archive-8.repo &gt; /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
+<p>4、重建缓存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum clean all &amp;&amp; yum makecache<br></code></pre></td></tr></table></figure>
+<p>最后成功解决！！</p>
+<p>参考网站：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/burgerh/article/details/123098751">https://blog.csdn.net/burgerh/article/details/123098751</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39835505/article/details/124840390">https://blog.csdn.net/qq_39835505/article/details/124840390</a></p>
 
               
             </div>
@@ -283,7 +314,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/mac/">#mac</a>
+        <a href="/tags/centos/">#centos</a>
       
     </div>
   
@@ -295,8 +326,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>安装brew时卡在Downloading Command Line Tools for Xcode</div>
-      <div>http://example.com/2022/05/31/安装brew时卡在Downloading-Command-Line-Tools-for-Xcode/</div>
+      <div>Centos8使用yum命令报错</div>
+      <div>http://example.com/2022/06/01/centos-yum-命令报错/</div>
     </div>
     <div class="license-meta">
       
@@ -308,7 +339,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年5月31日</div>
+          <div>2022年6月1日</div>
         </div>
       
       
@@ -338,18 +369,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/01/centos-yum-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99/" title="Centos8使用yum命令报错">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Centos8使用yum命令报错</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/31/mac%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE/" title="mac相关软件配置">
-                        <span class="hidden-mobile">mac相关软件配置</span>
+                      <a href="/2022/05/31/%E5%AE%89%E8%A3%85brew%E6%97%B6%E5%8D%A1%E5%9C%A8Downloading-Command-Line-Tools-for-Xcode/" title="安装brew时卡在Downloading Command Line Tools for Xcode">
+                        <span class="hidden-mobile">安装brew时卡在Downloading Command Line Tools for Xcode</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
