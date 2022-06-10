@@ -16,22 +16,33 @@
   <meta name="author" content="柳遇安">
   <meta name="keywords" content="博客">
   
-    <meta name="description" content="今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。 执行命令： 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh 运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repod">
+    <meta name="description" content="接口分类 内部：开发的接口给内部系统使用 外部： 被测项目调用外部接口（正例） 被测项目提供接口给外部使用（正例，返例，鉴权，兼容）接口的设计风格分类     1、Soap基于webservice协议，https:&#x2F;&#x2F;xxx?wsdl  2、RPC基于dubbo（thrift）协议的接口，dubbo:xx&#x2F;&#x2F;xx  3、RestFul基于http协议，http:&#x2F;&#x2F;xx&#x2F;xxhttp协议是一种超文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos8使用yum命令报错">
-<meta property="og:url" content="http://example.com/2022/06/01/centos-yum-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99/index.html">
+<meta property="og:title" content="Jemeter">
+<meta property="og:url" content="http://example.com/2022/06/01/Jemeter/index.html">
 <meta property="og:site_name" content="从未到过的地方">
-<meta property="og:description" content="今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。 执行命令： 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh 运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repod">
+<meta property="og:description" content="接口分类 内部：开发的接口给内部系统使用 外部： 被测项目调用外部接口（正例） 被测项目提供接口给外部使用（正例，返例，鉴权，兼容）接口的设计风格分类     1、Soap基于webservice协议，https:&#x2F;&#x2F;xxx?wsdl  2、RPC基于dubbo（thrift）协议的接口，dubbo:xx&#x2F;&#x2F;xx  3、RestFul基于http协议，http:&#x2F;&#x2F;xx&#x2F;xxhttp协议是一种超文">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-01T05:09:41.000Z">
-<meta property="article:modified_time" content="2022-06-01T05:25:35.532Z">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-01-18-22-17.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-01-18-41-41.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-01-18-46-08.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-01-32.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-28-11.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-46-29.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-49-33.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-38-58.png">
+<meta property="og:image" content="http://example.com/2022/06/01/Jemeter/2022-06-02-11-50-45.png">
+<meta property="article:published_time" content="2022-06-01T08:49:15.000Z">
+<meta property="article:modified_time" content="2022-06-02T08:57:33.939Z">
 <meta property="article:author" content="柳遇安">
-<meta property="article:tag" content="centos">
+<meta property="article:tag" content="测试">
+<meta property="article:tag" content="Jemeter">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/06/01/Jemeter/2022-06-01-18-22-17.png">
   
   
   
-  <title>Centos8使用yum命令报错 - 从未到过的地方</title>
+  <title>Jemeter - 从未到过的地方</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Centos8使用yum命令报错"></span>
+            <span id="subtitle" data-typed-text="Jemeter"></span>
           
         </div>
 
@@ -205,7 +216,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-01 13:09" pubdate>
+        <time datetime="2022-06-01 16:49" pubdate>
           2022年6月1日 下午
         </time>
       </span>
@@ -217,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.2k 字
         
       </span>
     
@@ -228,7 +239,7 @@
         
         
         
-          17 分钟
+          19 分钟
         
       </span>
     
@@ -266,43 +277,76 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Centos8使用yum命令报错</h1>
+            <h1 style="display: none">Jemeter</h1>
             
             <div class="markdown-body">
               
-              <p>今天想起来还有台服务器，于是准备安装一下docker,回顾一下之前学习的知识。</p>
-<p>执行命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -sSL https://get.daocloud.io/docker | sh<br></code></pre></td></tr></table></figure>
-<p>运行了结果报错：Failed to download metadata for repo ‘AppStream’: Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried<br>那么百度一下：</p>
-<p>原因：2022年1月1日起CentOS官方将不再对CentOS 8提供服务支持,虽然系统可以正常使用,但CentOS 8的yum源已经移除无法使用了,使用yum安装会报错</p>
-<p>按顺序执行一下命令即可解决：<br>1、执行如下命令先将之前的yum文件备份：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rename &#x27;.repo&#x27; &#x27;.repo.bak&#x27; /etc/yum.repos.d/*.repo<br></code></pre></td></tr></table></figure>
-<p>2、运行以下命令下载最新的repo文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo -O /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://mirrors.aliyun.com/repo/epel-archive-8.repo -O /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
-<p>3、运行以下命令替换repo文件中的链接：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed -i &#x27;s/mirrors.cloud.aliyuncs.com/url_tmp/g&#x27;  /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp;  sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo &amp;&amp; sed -i &#x27;s/url_tmp/mirrors.aliyun.com/g&#x27; /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed -i &#x27;s/mirrors.aliyun.com/mirrors.cloud.aliyuncs.com/g&#x27; /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
-<p>4、运行以下命令重新创建缓存,若没报错,则正常了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum clean all &amp;&amp; yum makecache<br></code></pre></td></tr></table></figure>
-
-<p>结果又报错了<br>Errors during downloading metadata for repository ‘epel-archive’:</p>
-<ul>
-<li>Curl error (6): Couldn’t resolve host name for <a target="_blank" rel="noopener" href="http://mirrors.cloud.aliyuncs.com/epel-archive/8/Everything/x86_64/repodata/repomd.xml">http://mirrors.cloud.aliyuncs.com/epel-archive/8/Everything/x86_64/repodata/repomd.xml</a> [Could not resolve host: mirrors.cloud.aliyuncs.com]<br>Error: Failed to download metadata for repo ‘epel-archive’: Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried<br>那再百度下：<br>因为所用系统为Centos 8版本，暂时（此时为2022-03-16）已停止更新相应依赖，</li>
+              <h3 id="接口分类"><a href="#接口分类" class="headerlink" title="接口分类"></a>接口分类</h3><ul>
+<li>内部：开发的接口给内部系统使用</li>
+<li>外部：<ul>
+<li>被测项目调用外部接口（正例）</li>
+<li>被测项目提供接口给外部使用（正例，返例，鉴权，兼容）<h3 id="接口的设计风格分类"><a href="#接口的设计风格分类" class="headerlink" title="接口的设计风格分类"></a>接口的设计风格分类</h3></li>
 </ul>
-<p>于是按照下面操作，解决问题</p>
-<p>1、备份源文件夹</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv /etc/yum.repos.d /etc/yum.repos.d.bak<br></code></pre></td></tr></table></figure>
-<p>2、创建源文件目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir -p /etc/yum.repos.d<br></code></pre></td></tr></table></figure>
-<p>3、下载新的yum源</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo &gt; /etc/yum.repos.d/Centos-vault-8.5.2111.repo<br></code></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl https://mirrors.aliyun.com/repo/epel-archive-8.repo &gt; /etc/yum.repos.d/epel-archive-8.repo<br></code></pre></td></tr></table></figure>
-<p>4、重建缓存</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum clean all &amp;&amp; yum makecache<br></code></pre></td></tr></table></figure>
-<p>最后成功解决！！</p>
-<p>参考网站：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/burgerh/article/details/123098751">https://blog.csdn.net/burgerh/article/details/123098751</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39835505/article/details/124840390">https://blog.csdn.net/qq_39835505/article/details/124840390</a></p>
+</li>
+</ul>
+<ul>
+<li><p>1、Soap<br>基于webservice协议，<a target="_blank" rel="noopener" href="https://xxx/?wsdl">https://xxx?wsdl</a></p>
+</li>
+<li><p>2、RPC<br>基于dubbo（thrift）协议的接口，dubbo:xx//xx</p>
+</li>
+<li><p>3、RestFul<br>基于http协议，<a target="_blank" rel="noopener" href="http://xx/xx">http://xx/xx</a><br>http协议是一种超文本传输协议，是客户端与服务器交互数据。</p>
+<p>分为请求和响应两个部分。<br>请求：请求行（请求方式和请求路径），请求头，请求报文</p>
+<p>  请求方式：get，post，put，delete<br>请求路径：url<br>请求头：<br>Accept: text/html,image/*<br>浏览器可以接收的类型<br>Accept-Charset: ISO-8859-1<br>浏览器可以接收的编码类型<br>Accept-Encoding: gzip,compress<br>浏览器可以接收压缩编码类型<br>Accept-Language: en-us,zh-cn<br>浏览器可以接收的语言和国家类型<br>Host: <a target="_blank" rel="noopener" href="http://www.lks.cn/">www.lks.cn:80</a><br>浏览器请求的主机和端口<br>Referer: <a target="_blank" rel="noopener" href="http://www.lks.cn/index.html">http://www.lks.cn/index.html</a><br>请求来自于哪个页面<br>User-Agent: Mozilla/4.0 compatible; MSIE 5.5; Windows NT 5.0<br>浏览器相关信息<br>If-Modified-Since: Tue, 11 Jul 2000 18:23:51 GMT<br>某个页面缓存时间<br>Cookie：<br>浏览器暂存服务器发送的信息<br>Connection: close1.0/Keep-Alive1.1<br>HTTP请求的版本的特点<br>Date: Tue, 11 Jul 2000 18:23:51GMT<br>请求网站的时间<br>Allow:GET<br>请求的方法 GET 常见的还有POST<br>Keep-Alive5<br>连接的时间；5<br>Connection：keep-alive<br>是否是长连接<br>Cache-Control：max-age=300<br>缓存的最长时间 300</p>
+</li>
+</ul>
+<p>响应：响应行(响应码和响应信息)，响应头，响应报文</p>
+<p>接口测试工具<br>jmeter+ant+git+jenkins<br>postman+newman+git+jenkins</p>
+<p>函数助手对话框<br>1、测试计划：jemeter的起点和容器<br>2、线程组：代表一定的虚拟用户<br>3、取样器：发送请求的最小单元<br>4、逻辑控制器：控制组件的执行顺序<br>5、前置处理器：在请求之前的操作<br>6、后置处理器：在请求之后的操作<br>7、断言：判断请求是否成功<br>8、定时器：是否延时或间隔发送请求<br>9、配置元件：请求期的配置信息<br>10、监听器：负责收集测试结果</p>
+<p>执行顺序：<br>测试计划》线程组》配置元件》前置处理器》定时器》取样器》后置处理器》断言》监听器</p>
+<p>定时器（<br>固定 ：每xx秒发送一次<br>同步 ：并发<br>高斯 ：随机，模拟真实请求<br>）</p>
+<p>作用域：<br>组件回作用域它的父级组件，同级组件以及同级组件的子组件<br><img src="/2022/06/01/Jemeter/2022-06-01-18-22-17.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="接口测试流程："><a href="#接口测试流程：" class="headerlink" title="接口测试流程："></a>接口测试流程：</h3><p>1、拿到接口文档（抓包，录制），熟悉接口业务，接口地址，鉴权方式，入参，出参，错误码，兼容</p>
+<p>2、接口测试用例的设计评审<br>正例：<br>反例：</p>
+<ul>
+<li>1、鉴权反例（必填，错误，鉴权码过期）</li>
+<li>2、参数反例（必填，参数类型异常，参数长度异常）</li>
+<li>3、其他场景（黑名单，调用次数限制，分页场景）</li>
+<li>4、兼容性（一个接口对应多个版本App）</li>
+</ul>
+<p>3、执行接口测试</p>
+<p>4、团队协作，持续集成并伸出报告发送邮件  </p>
+<h3 id="Jemeter-接口测试"><a href="#Jemeter-接口测试" class="headerlink" title="Jemeter 接口测试"></a>Jemeter 接口测试</h3><h4 id="添加组件"><a href="#添加组件" class="headerlink" title="添加组件"></a>添加组件</h4><p>1、HTTP Cookie 管理器：</p>
+<p>2、HTTP请求默认值<br><img src="/2022/06/01/Jemeter/2022-06-01-18-41-41.png" srcset="/img/loading.gif" lazyload></p>
+<p>3、用户定义的变量</p>
+<h4 id="增加取样器"><a href="#增加取样器" class="headerlink" title="增加取样器"></a>增加取样器</h4><p>web服务器参数：会覆盖组件中的默认值，可以不写<br><img src="/2022/06/01/Jemeter/2022-06-01-18-46-08.png" srcset="/img/loading.gif" lazyload><br>自动重定向：假设响应是301/301只会获取最终的结果<br>跟踪重定向：假设响应是301/301会把整个过程的记录</p>
+<h4 id="察看结果树"><a href="#察看结果树" class="headerlink" title="察看结果树"></a>察看结果树</h4><p>乱码：组件中增加编码格式utf-8或者设置全局配置文件中的编码格式utf-8</p>
+<h3 id="jemeter接口关联"><a href="#jemeter接口关联" class="headerlink" title="jemeter接口关联"></a>jemeter接口关联</h3><p>1、正则表达式提取器<br>添加一个后置处理器选择正则表达式提取器。<br>左边界右边界中间替换成（.*？）<br>$1$ 表示第一个正则表达式多个就写多个<br>匹配数字0随机-1所以x是第x个<br>2、jsonpath提取器（精准）<br>添加一个后置处理器选择jsonpath提取器。<br>$根目录 .子节点key<br>$[“key”]</p>
+<p>接口测试实战（业务闭环）<br>crud 创建了也删除了 数据库不产生测试数据<br>动态参数 tools 函数助手 random/<br>randomstring </p>
+<p>批量删除 循环<br>获取所有id -1 循环控制器 放入删除接口 增加固定定时器</p>
+<h3 id="Jemeter断言"><a href="#Jemeter断言" class="headerlink" title="Jemeter断言"></a>Jemeter断言</h3><p>1、响应断言</p>
+<ul>
+<li>状态断言<br><img src="/2022/06/01/Jemeter/2022-06-02-11-01-32.png" srcset="/img/loading.gif" lazyload></li>
+<li>业务断言<br>json数据需要选择响应文本<br>字符串是需要选择文本</li>
+</ul>
+<p>字符串、相等不支持正则<br>包含、匹配支持正则</p>
+<p>2、json断言</p>
+<p>3、beanshell断言</p>
+<h3 id="Jemeter调试"><a href="#Jemeter调试" class="headerlink" title="Jemeter调试"></a>Jemeter调试</h3><p>1、调试取样器<br>2、jmeter + fiddler<br>高级里面 代理服务器 添加fiddler地址端口<br><img src="/2022/06/01/Jemeter/2022-06-02-11-28-11.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Jemeter数据驱动"><a href="#Jemeter数据驱动" class="headerlink" title="Jemeter数据驱动"></a>Jemeter数据驱动</h3><p>添加一个元件，<br><img src="/2022/06/01/Jemeter/2022-06-02-11-46-29.png" srcset="/img/loading.gif" lazyload><br><img src="/2022/06/01/Jemeter/2022-06-02-11-49-33.png" srcset="/img/loading.gif" lazyload><br>如果多个数据，就需要循环三次<br><img src="/2022/06/01/Jemeter/2022-06-02-11-38-58.png" srcset="/img/loading.gif" lazyload>，这边没有值不能写“”需要这么写不然会报错<br><img src="/2022/06/01/Jemeter/2022-06-02-11-50-45.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="当没有接口文档时，如何使用Jmeter录制和创建脚本"><a href="#当没有接口文档时，如何使用Jmeter录制和创建脚本" class="headerlink" title="当没有接口文档时，如何使用Jmeter录制和创建脚本"></a>当没有接口文档时，如何使用Jmeter录制和创建脚本</h3><p>1、抓包</p>
+<p>2、badboy</p>
+<p>3、jemter自带的http代理服务器</p>
+<ul>
+<li>（1）新建线程组</li>
+<li>（2）新建代理服务器：测试计划-&gt;非配置元件-&gt;代理服务器<ul>
+<li>端口：8888</li>
+<li>目标控制器：设置为你录制的目标线程组<br>type：默认httpclient 不行的话选 java</li>
+</ul>
+</li>
+<li>（3）点击【启动按钮】，运行代理服务器</li>
+<li>（4）客户端设置：让客户端请求通过代理服务器发送，dns 中配置jemeter的端口</li>
+</ul>
+<p>4、调试接口测试脚本</p>
 
               
             </div>
@@ -314,7 +358,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/centos/">#centos</a>
+        <a href="/tags/%E6%B5%8B%E8%AF%95/">#测试</a>
+      
+        <a href="/tags/Jemeter/">#Jemeter</a>
       
     </div>
   
@@ -326,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Centos8使用yum命令报错</div>
-      <div>http://example.com/2022/06/01/centos-yum-命令报错/</div>
+      <div>Jemeter</div>
+      <div>http://example.com/2022/06/01/Jemeter/</div>
     </div>
     <div class="license-meta">
       
@@ -369,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/01/Jemeter/" title="Jemeter">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Jemeter</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/31/%E5%AE%89%E8%A3%85brew%E6%97%B6%E5%8D%A1%E5%9C%A8Downloading-Command-Line-Tools-for-Xcode/" title="安装brew时卡在Downloading Command Line Tools for Xcode">
-                        <span class="hidden-mobile">安装brew时卡在Downloading Command Line Tools for Xcode</span>
+                      <a href="/2022/06/01/centos-yum-%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99/" title="Centos8使用yum命令报错">
+                        <span class="hidden-mobile">Centos8使用yum命令报错</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
