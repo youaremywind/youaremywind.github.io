@@ -1,5 +1,5 @@
 ---
-title: Jemeter
+title: Jemeter学习记录
 date: 2022-06-01 16:49:15
 tags:
     - 测试
@@ -182,5 +182,3 @@ json数据需要选择响应文本
   type：默认httpclient 不行的话选 java
 - （3）点击【启动按钮】，运行代理服务器
 - （4）客户端设置：让客户端请求通过代理服务器发送，dns 中配置jemeter的端口
-
-4、调试接口测试脚本
